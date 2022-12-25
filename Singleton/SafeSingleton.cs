@@ -8,21 +8,16 @@ namespace Singleton
     class Singleton
     {
         private Singleton() { }
-
         private static Singleton _instance;
 
-        
         private static readonly object _lock = new object();
 
         public static Singleton GetInstance(string value)
         {
-           
             if (_instance == null)
             {
-      
                 lock (_lock)
-                {
-               
+                {      
                     // object.
                     if (_instance == null)
                     {
@@ -33,24 +28,21 @@ namespace Singleton
             }
             return _instance;
         }
-
         // We'll use this property to prove that our Singleton really works.
         public string Value { get; set; }
     }
-
     class Program
     {
         static void Main(string[] args)
         {
             // The client code.
-            
             Console.WriteLine(
                 "{0}\n{1}\n\n{2}\n",
                 "If you see the same value, then singleton was reused (yay!)",
                 "If you see different values, then 2 singletons were created (booo!!)",
                 "RESULT:"
             );
-            
+         
             Thread process1 = new Thread(() =>
             {
                 TestSingleton("FOO");

@@ -1,6 +1,6 @@
 using System;
 
-namesapce Strategy
+namespace Strategy
 {
 class Context
 {
